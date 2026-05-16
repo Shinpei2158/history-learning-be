@@ -1,98 +1,208 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# History Learning Platform Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+An interactive history learning platform backend designed for middle school students and teachers, providing structured lessons, quizzes, flashcards, classroom management, and gamified learning experiences.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## Project Overview
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This project was developed as a business-oriented educational platform focused on improving history learning accessibility and engagement for secondary school students.
 
-## Project setup
+Unlike traditional self-learning platforms, learning content is curated and managed by teachers to ensure higher content quality and reliability.
+
+The system combines:
+- Structured lesson delivery
+- Interactive learning methods
+- Classroom management
+- Real-time learning activities
+- Gamification mechanics
+
+---
+
+## Main Features
+
+### Authentication & Authorization
+- JWT authentication
+- Role-based access control
+- Student and Teacher roles
+- Protected APIs using guards and decorators
+
+### Lesson Learning System
+- Slide-based history lessons
+- Embedded educational videos
+- Lesson progress tracking
+- Historical figures and historical location content
+
+### Flashcard & Quiz System
+- Teacher-created flashcards
+- Multiple-choice quizzes
+- Quiz attempt tracking
+- Learning progress analytics
+
+### Exam Management
+- Exam banks and question management
+- Exam sessions
+- Student exam attempts
+- Automatic score calculation
+
+### Classroom & Group System
+- Teachers can create learning groups/classes
+- Students can join groups
+- Assignment and activity management
+
+### Social Features
+- Friend system
+- Real-time online/offline presence using WebSocket
+- Student interaction support
+
+### Gamification System
+- Achievement system
+- Learning rewards and points
+- Avatar and frame unlock system
+- Student engagement mechanics
+
+---
+
+## Tech Stack
+
+### Backend
+- NestJS
+- TypeScript
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Socket.IO
+
+---
+
+## Backend Architecture
+
+The backend follows modular architecture principles using:
+- Modules
+- Controllers
+- Services
+- DTO validation
+- MongoDB schema models
+- Event-driven achievement handling
+
+### Main Modules
+- Auth Module
+- Users Module
+- Lesson Module
+- Flashcard Module
+- Quiz Module
+- Exam Module
+- Friendship Module
+- Group Module
+- Achievement Module
+- Statistic Module
+
+---
+
+## Real-Time Features
+
+The platform uses WebSocket gateways for:
+- User online/offline presence
+- Real-time interaction support
+- Social activity synchronization
+
+---
+
+## Gamification Design
+
+Students receive points by:
+- Completing lessons
+- Finishing quizzes and exams
+- Unlocking achievements
+
+Points can be exchanged for:
+- Avatars
+- Avatar frames
+- Cosmetic profile items
+
+This system was designed to improve student engagement and learning motivation.
+
+---
+
+## Project Structure
 
 ```bash
-$ npm install
+src/
+├── auth/
+├── users/
+├── lesson/
+├── flashcard/
+├── quiz/
+├── exam/
+├── friendship/
+├── achievement/
+├── group/
+└── common/
 ```
 
-## Compile and run the project
+---
+
+## Installation
+
+### Clone repository
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone <your-repository-url>
 ```
 
-## Run tests
+### Install dependencies
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Deployment
+### Environment Variables
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Create a `.env` file:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+```env
+PORT=3000
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_secret
+```
+
+---
+
+## Run The Project
+
+### Development
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run start:dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### Production
 
-## Resources
+```bash
+npm run build
+npm run start:prod
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## Future Improvements
 
-## Support
+Planned features:
+- Admin dashboard
+- AI-assisted learning recommendations
+- Interactive historical maps
+- Real-time classroom sessions
+- Analytics dashboard
+- Content moderation system
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## Project Status
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+This project is currently under active development and was initially developed for an academic enterprise-oriented software engineering project.
 
-## License
+---
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## Author
+
+Developed by Shinpei.
